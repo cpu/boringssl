@@ -195,6 +195,9 @@ func doTest(test invocation) error {
 		if *update {
 			writeUpdate(test.expectedPath, result)
 		}
+
+		log.Printf("Expected:\n%s\nActual:\n%s\n", expectedBuf.String(), string(result))
+
 		return fmt.Errorf("Mismatch for %q", test.expectedPath)
 	}
 
